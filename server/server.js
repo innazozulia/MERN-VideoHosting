@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const userRoute = require("./routes/users");
-// const videoRoute = require("./routes/videos");
-// const commentRoute = require("./routes/comments");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+const videoRoute = require("./routes/videos");
+// const commentRoute = require("./routes/comments");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -33,7 +33,7 @@ app.use(express.json());
 //Router
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-// app.use("/api/video", videoRoute);
+app.use("/api/videos", videoRoute);
 // app.use("/api/comment", commentRoute);
 
 //midleware

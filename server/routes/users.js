@@ -21,16 +21,16 @@ router.delete("/:id", verityToken, deleteUser);
 //get a user
 router.get("/find/:id", getUser);
 
-//subscribe a user
+// //subscribe a user
 router.put("/subscribe/:id", verityToken, subscribeUser);
 
-//unsidscrite a user
+// //unsidscrite a user
 router.put("/unsubscribe/:id", verityToken, unsubscribeUser);
 
-//like a video
-router.put("/like/:videoId", verityToken, likeVideo);
+// //like a video
+// router.put("/like/:videoId", verityToken, likeVideo);
 
-//dislike a video
-router.put("/dislike/:videoId", verityToken, dislikeVideo);
+// //dislike a video
+// router.put("/dislike/:videoId", verityToken, dislikeVideo);
 
 module.exports = router;
