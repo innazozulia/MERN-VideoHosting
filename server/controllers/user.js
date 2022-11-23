@@ -1,5 +1,6 @@
 const createError = require("../error");
 const User = require("../models/User");
+const Video = require("../models/Video");
 
 const updateUser = async (req, res, next) => {
   //compare users
@@ -73,14 +74,28 @@ const unsubscribeUser = async (req, res, next) => {
 };
 
 const likeVideo = async (req, res, next) => {
+  const id = req.user.id;
+  const videoId = req.params.videoId;
   try {
+    await Video.findByIdAndUpdate(videoId, {
+      $addToSet: { likes: id },
+      $pull: { dislikes: id },
+    });
+    res.status(200).json("The video has been liked");
   } catch (error) {
     next(error);
   }
 };
 
 const dislikeVideo = async (req, res, next) => {
+  const id = req.user.id;
+  const videoId = req.params.videoId;
   try {
+    await Video.findByIdAndUpdate(videoId, {
+      $addToSet: { dislikes: id },
+      $pull: { likes: id },
+    });
+    res.status(200).json("The video has been disliked");
   } catch (error) {
     next(error);
   }

@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const videoRoute = require("./routes/videos");
-// const commentRoute = require("./routes/comments");
+const commentRoute = require("./routes/comments");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -34,7 +34,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/videos", videoRoute);
-// app.use("/api/comment", commentRoute);
+app.use("/api/comment", commentRoute);
 
 //midleware
 app.use((error, req, res, next) => {

@@ -1,8 +1,15 @@
-// const express = require("express");
-// const test = require("../controllers/user");
+const express = require("express");
+const {
+  addComment,
+  deleteComment,
+  getComments,
+} = require("../controllers/comment");
+const verifyToken = require("../verifyToken");
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.get("/test", test);
+router.post("/", verifyToken, addComment);
+router.delete("/:id", verifyToken, deleteComment);
+router.get("/:videoId", getComments);
 
-// module.exports = router;
+module.exports = router;

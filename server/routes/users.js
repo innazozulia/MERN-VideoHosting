@@ -28,9 +28,9 @@ router.put("/subscribe/:id", verityToken, subscribeUser);
 router.put("/unsubscribe/:id", verityToken, unsubscribeUser);
 
 // //like a video
-// router.put("/like/:videoId", verityToken, likeVideo);
+router.put("/like/:videoId", verityToken, likeVideo);
 
 // //dislike a video
-// router.put("/dislike/:videoId", verityToken, dislikeVideo);
+router.put("/dislike/:videoId", verityToken, dislikeVideo);
 
 module.exports = router;
